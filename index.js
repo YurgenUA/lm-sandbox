@@ -45,7 +45,7 @@ exports.handler = function( event, context ) {
       process.env['PATH'] = process.env['PATH'] + ':' + process.env['LAMBDA_TASK_ROOT'];
 
       console.log('Calling phantom: ', phantomJsPath, childArgs);
-      var ls = childProcess.execFile('sudo ' + phantomJsPath, childArgs,  function(error, stdout, stderr){
+      var ls = childProcess.execFile(phantomJsPath, childArgs,  function(error, stdout, stderr){
 //      var ls = childProcess.execFile(phantomJsPath, null,  function(error, stdout, stderr){
         console.log('in child process callback');
         console.log('in child process callback err %j', error);
