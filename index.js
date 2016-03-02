@@ -77,5 +77,5 @@ exports.handler = function( event, context ) {
 }
 
   // Execute the phantom call and exit
-exports.handler(null, null);
+//exports.handler(null, null);
 
