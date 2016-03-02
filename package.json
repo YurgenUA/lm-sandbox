@@ -1,0 +1,25 @@
+{
+  "name": "lm-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YurgenUA/lm-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YurgenUA/lm-sandbox/issues"
+  },
+  "homepage": "https://github.com/YurgenUA/lm-sandbox#readme",
+  
+   "devDependencies": {
+    "aws-sdk": "^2.1.39",
+    "node-lambda": "^0.6.1",
+    "mocha": "^2.3.2"
+  }
+}
