@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            font-size: 10px;
+        }
+        .container {
+
+        }
+        .container.boldBorder{
+            border: 2px solid;
+            border-radius: 7px;
+        }
+        .row{
+            width: 100%;
+        }
+        .rowBoder{
+            border-top: 2px solid;
+        }
+        .rowBoder:first-child{
+            border-top: none;
+        }
+        .rowBoder:after{
+            padding: 5px 0;
+        }
+        .rowMargin{
+            margin: 15px 0;
+        }
+        .col-md-4 {
+            width: 24%;
+            display: inline-block;
+            /* padding: 5px; */
+        }
+        .col-md-2{
+            width: 49%;
+            display: inline-block;
+            vertical-align: top;
+            /* padding: 5px 5px; */
+        }
+        .clearFloat {
+            clear: both;
+        }
+        .boldText{
+            font-weight: bold;
+        }
+        .content{
+            word-wrap: break-word;
+            vertical-align: text-top;
+            padding: 5px;
+        }
+        .floatRight{
+            float: right;
+        }
+        .borderBot{
+            border-bottom: 1px solid;
+        }
+
+        .headInformation{
+
+        }
+        .headInformation .content{
+            text-align: center;
+            width: 100%;
+            display: inline-block;
+        }
+        .jobInfo .content{
+            text-align: center;
+            width: 100%;
+            display: inline-block;
+        }
+        .barCodeClient {
+            width:80px;
+            height: 30px;
+        }
+        .borderInput{
+            border:1px solid;
+            padding: 4px;
+            font-size: 20px;
+            background: white;
+        }
+        .imagePrev{
+
+            border: 1px solid;
+
+            padding: 10px;
+
+            text-align: center;
+
+            position: relative;
+
+            display: block;
+
+            height: 500px;
+        }
+        .imagePrev img {
+            max-height: 500px;
+            max-width: 473px;
+            transform: rotate(270deg) translateX(0px) translateY(10px);
+            position: absolute;
+            top: 20%;
+            left: -30px;
+        }
+        .lineVert{
+            border-left: 2px solid;
+        }
+        .tableClient .boldText{
+            width: 30%;
+            display: inline-block;
+            text-align: right;
+        }
+        .tableClient div{
+            line-height: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-md-2">
+    <div class="container boldBorder">
+
+        <div class="row rowBoder headInformation">
+            <div class="col-md-4 ">
+                <div class="content">
+                <span class="boldText">
+                    PRINTED BY
+                </span>
+                    $$Cimpress.PrintedBy
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content">
+                <span class="boldText">
+                    CREATED BY
+                </span>
+                    $$Cimpress.CreatedBy
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="content">
+                    <span class="boldText">
+                        ACCOUNT MANAGER
+                    </span>
+                    $$Cimpress.AccountManager
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="content">
+                <span class="boldText">
+                    DESIGNER
+                </span>
+                    $$Cimpress.Designer
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+
+
+        <div class="row rowBoder jobInfo">
+            <div class="col-md-2 ">
+                <div class="content">
+                    $$Cimpress.LabelImgSrc
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="content">
+                    <div class="boldText ">
+                        JOB NUMBER
+                    </div>
+                    <div  class="borderInput">
+                        $$Cimpress.JobNumber
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="content">
+                    <img src="barCodeClient.png"  class=" barCodeClient" alt="">
+                    $$Cimpress.barCodeClient
+                    <div>
+                    <span class="boldText">
+                        Date:
+                    </span>
+                        <span> $$Cimpress.DateOrder</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+
+
+        <div class="row rowBoder">
+            <div class="col-md-2">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-2">
+                            ARTWORK DEADLINE
+                        </div>
+                        <div class="col-md-2 boldText">
+                            $$Cimpress.ArtWorkDeadLine
+                        </div>
+                        <div class="clearFloat"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 lineVert">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-2">
+                            PRODUCTION DEADLINE
+                            <div>
+                                $$Cimpress.ProductionDeadLine.status
+                            </div>
+                        </div>
+                        <div class="col-md-2 boldText">
+                            $$Cimpress.ProductionDeadLine
+                        </div>
+                        <div class="clearFloat"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+
+        <div class="row rowBoder">
+            <div class="col-md-2">
+                <div class="content">
+                    <span class="boldText">
+                        CLIENT:
+                    </span>
+                    <span class="borderBot">
+                        $$Cimpress.CLIENT
+                    </span>
+                    <div>
+                        <img src="barCodeClient.png"  class=" barCodeClient" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="content tableClient">
+                    <div>
+                        <span class="boldText">Contact:</span>
+                    <span class="borderBot">
+                        $$Cimpress.CLIENT.Contact
+                    </span>
+
+                    </div>
+
+                    <div>
+                        <span class="boldText">Tel No:</span>
+                    <span class="borderBot">
+                        $$Cimpress.CLIENT.Tel
+                    </span>
+                    </div>
+                    <div>
+                        <span class="boldText">Mobile:</span>
+                    <span class="borderBot">
+                        $$Cimpress.CLIENT.Mobile
+                    </span>
+                    </div>
+
+                    <div>
+                        <span class="boldText">Prev job No:</span>
+                     <span class="borderBot">
+                        $$Cimpress.CLIENT.PrevJobNo
+                    </span>
+                    </div>
+
+                    <div>
+                        <span class="boldText">Trade reference/Customer</span>
+                     <span class="borderBot">
+                        $$Cimpress.CLIENT.TradeReference
+                    </span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-2">
+    <div class="row">
+        <div  class="borderInput col-md-4 floatRight">
+            <div class="content">
+                $$Cimpress.JobNumber
+            </div>
+        </div>
+        <div class="clearFloat"></div>
+    </div>
+
+    <div class="rowMargin"></div>
+
+    <div class="row">
+        <div class="imagePrev">
+            <img src="prev3.jpg" alt="">
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

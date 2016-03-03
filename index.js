@@ -1,3 +1,8 @@
+var S3Service = require('./core/S3Service'); 
+
+var s3Service = new S3Service();
+
+
 // Entry Point
 exports.handler = function( event, context ) {
   "use strict";
@@ -19,7 +24,7 @@ exports.handler = function( event, context ) {
         callback(path.join(__dirname, 'phantomjs'));
       }
 */
-      callback(path.join(__dirname, 'phantomjs'));
+      callback(path.join(__dirname, 'wkhtmltopdf'));
     });
   }
 
@@ -28,7 +33,11 @@ exports.handler = function( event, context ) {
     getPhantomFileName(function(phantomJsPath) {
       
       var childArgs = [
-        path.join(__dirname, 'phantomjs-script.js')
+        //path.join(__dirname, 'phantomjs-script.js')
+        '-O',
+        'Landscape',
+        path.join(__dirname, './template/index.html'), //'http://djinni.co/hire/', 
+        '/tmp/bash.for.loop.pdf'
       ];
   
       // This option causes the shared library loader to output
@@ -62,7 +71,18 @@ exports.handler = function( event, context ) {
   
       ls.on('exit', function (code) {
         console.log('child process exited with code ' + code);
-        callback();
+        console.log('upload PDF to S3');
+        fs.readFile('/tmp/bash.for.loop.pdf', function(err, data){
+            if (err)
+								console.log('error detected ', err);
+						else{
+              console.log('fs.readFile with no errors');
+              //console.log(' and data is %j', data);
+              s3Service.PutFile('cimpress.jobsheet', 'output.pdf', data, 'pdf', callback);
+              console.log('after s3Service.PutFile');
+            }          
+          
+        });
       });
 
       console.log('leaving my lambda...');
